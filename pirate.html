@@ -192,14 +192,14 @@
         if(
             Math.abs(lastCheckRw - treasureRw) <= 1 && Math.abs(lastCheckCl - treasureCl) <=1 && (Math.abs(lastCheckRw - treasureRw) !==0 || Math.abs(lastCheckCl - treasureCl) !==0)
         ){
-            var helptxt = "can smell it";
+            var helptxt = "Can Smell It";
         }
         else if(Math.abs(lastCheckRw - treasureRw) + Math.abs(lastCheckCl - treasureCl) === 2
         ){
-            var helptxt = "Close maite";
+            var helptxt = "Close Matie";
         }
         else {
-            var helptxt = "Step faster";
+            var helptxt = "Step Faster";
         }
         penalty += 2;
         document.getElementById("penalty").textContent= penalty;
