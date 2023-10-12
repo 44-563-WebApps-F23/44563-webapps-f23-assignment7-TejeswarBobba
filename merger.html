@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html> 
+<html>
+
 <head>
     <title>Merger Page</title>
     <meta charset="utf-8">
@@ -9,57 +10,92 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<style>
-    .flex-container {
-      display: flex;  flex-direction:row;
-      background-color: red;
-  }
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
 
-.flex-container > div {  /*div children of the flex container*/
-  background-color: #f1f1f1; 
-  margin: 10px;  padding: 20px;  font-size: 30px;
-}
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
 
-/* Responsive layout */
-@media (max-width: 600px) { 
-	 .flex-container{
-		 flex-direction:column;
-		 background-color: green;
-	  }
-	}
-</style></head>
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
 
 
 
 <body>
-    <h2>Tejeswar Bobba  builds a merger</h2>
+    <h2>Tejeswar Bobba builds a merger</h2>
     <label for="textItem">Enter Text:</label>
     <input type="text" id="textItem">
-		<div class="flex-container" id="target">
-		  <div class="merger">row item 1</div>   
-		  <div class="merger">row item 2</div>  
-		  <div class="merger">row item 3</div>  
-		</div>
-	
-	<p> Press the button to create an new element of type div and then add it to the container.
-		</p>
-		<button onclick="makeNewDiv()">Add end</button>
-	    
-	
-</body>
-<script>
-	function makeNewDiv(){
-        inputvalue=document.getElementById("textItem").value;
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML=inputvalue;
-        element.className="merger"
-        element.style.color="orange"
+    <div class="flex-container" id="target">
+        <div class="merger">row item 1</div>
+        <div class="merger">row item 2</div>
+        <div class="merger">row item 3</div>
+    </div>
 
-		/* add it to the container */
-		let container = document.getElementById('target')
-		container.appendChild(element)
-		
-	}
-</script>
-</html>	
+    <p> Press the button to create an new element of type div and then add it to the container.
+    </p>
+    <button onclick="makeNewDiv()">Add end</button>
+    <button onclick="addFront()">Add front</button>
+    <button onclick="remove()">Remove</button>
+    
+
+
+
+
+    <script>
+        function makeNewDiv() {
+            inputvalue = document.getElementById("textItem").value;
+            /* make the div and its text */
+            let element = document.createElement("div")
+            element.innerHTML = inputvalue;
+            element.className = "merger"
+            element.style.color = "orange"
+
+            /* add it to the container */
+            let container = document.getElementById('target')
+            container.appendChild(element)
+
+        }
+        function remove() {
+
+            let mergerItems = document.getElementsByClassName("merger");
+            console.log(mergerItems)
+
+            let len = mergerItems.length;
+
+            if (len > 0) {
+                let indexRemove = Math.floor(len / 2);
+                mergerItems[indexRemove].remove();
+            }
+        }
+
+        function addFront() {
+            let inputValue = document.getElementById("textItem").value;
+
+            let newElement = document.createElement("div");
+            newElement.innerHTML = inputValue;
+            newElement.className = "merger";
+            newElement.style.color = "green";
+
+            let container = document.getElementById('target');
+            container.insertBefore(newElement, container.firstChild);
+        }
+    </script>
+</body>
+
+</html>
