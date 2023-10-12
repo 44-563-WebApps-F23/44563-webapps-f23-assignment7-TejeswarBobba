@@ -24,9 +24,17 @@
     }
     function startTime(){
         for (let i=0;i<9;i++){
+            
             setTimeout(function()
             {document.getElementById("counter").innerHTML = 'count: ' +i;}, (8-i)*1000);
         }
+        // BONUS
+        //var n = Math.floor(Math.random() * 9) + 2
+        // for (let i=0;i<n;i++){
+        //     setTimeout(function()
+        //     {document.getElementById("counter").innerHTML = 'count: ' +i;}, (8-i)*1000);
+        // }
+
         setTimeout(()=>{
             if (reactTime == undefined) {
                 document.getElementById("target").innerHTML="Too Slow";
